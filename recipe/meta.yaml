@@ -35,7 +35,9 @@ requirements:
     - llvm-openmp  # [osx]
     - cmake
     - make  # [not win]
-
+    - patch       # [not win]
+    - m2-patch    # [win]
+ 
 test:
   commands:
     - echo "Hello conda-forge linter"
