@@ -22,10 +22,11 @@ source:
     - 0001-Prefer-an-already-built-CovidSim-executable.patch
 
 build:
-  number: 0
+  number: 1
 
 requirements:
   build:
+    - {{ stdlib('c') }}
     - {{ compiler('cxx') }}
 {% if channel_targets is not defined or 'conda-forge' in channel_targets %}
     - libgomp  # [linux]
@@ -35,8 +36,6 @@ requirements:
     - llvm-openmp  # [osx]
     - cmake
     - make  # [not win]
-    - patch       # [not win]
-    - m2-patch    # [win]
  
 test:
   commands:
@@ -63,6 +62,7 @@ outputs:
         - '*'  # [win]
     requirements:
       build:
+        - {{ stdlib('c') }}
         - {{ compiler('cxx') }}
 {% if channel_targets is not defined or 'conda-forge' in channel_targets %}
         - libgomp  # [linux]
