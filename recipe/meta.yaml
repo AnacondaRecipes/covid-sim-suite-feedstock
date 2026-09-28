@@ -74,8 +74,10 @@ outputs:
         - make  # [not win]
       host:
         - llvm-openmp  # [osx]
+        - libgomp  # [linux]
       run:
         - llvm-openmp  # [osx]
+        - libgomp  # [linux]
         - {{ pin_subpackage('covid-sim-data') }}
     test:
       source_files:
